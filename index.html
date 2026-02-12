@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AnimeVerse - Watch Your Favorite Anime</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Add FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+<body>
+    <div class="background-animation">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M21.41 8.64v6.5c0 .8-.53 1.49-1.29 1.71l-5.7 1.61c-.34.1-.68.1-1.02 0l-5.7-1.61c-.76-.22-1.29-.91-1.29-1.71v-6.5c0-.8.53-1.49 1.29-1.71l5.7-1.61c.34-.1.68-.1 1.02 0l5.7 1.61c.76.22 1.29.91 1.29 1.71z"></path>
+                    <path d="M12 9v12"></path>
+                    <path d="M12 9c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path>
+                </svg>
+                Anime<span>Verse</span>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#anime-collection" class="nav-link">Anime</a></li>
+                <li><a href="#" class="nav-link">Genres</a></li>
+                <li><a href="#" class="nav-link">Latest</a></li>
+                <li><a href="#" class="nav-link">My List</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Gateway to Anime Paradise</h1>
+            <p>Stream your favorite anime shows in HD quality. No ads, no interruptions.</p>
+            <div class="hero-buttons">
+                <a href="#anime-collection" class="hero-btn primary-btn">Explore Collection</a>
+                <a href="#" class="hero-btn secondary-btn" id="trending-btn">Trending Now</a>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        <h2 class="section-title" id="anime-collection">Featured Anime</h2>
+        <div class="anime-grid">
+            <div class="anime-card" data-id="eminence-shadow">
+                <div class="card-overlay">
+                    <button class="watch-btn" onclick="openPlayer('eminence-shadow', 'The Eminence in Shadow', 'Season 1')">
+                        <i class="fas fa-play"></i> Watch Now
+                    </button>
+                </div>
+                <img src="image/shadow.jpg" alt="The Eminence in Shadow" loading="lazy">
+                <div class="anime-info">
+                    <h3>The Eminence in Shadow</h3>
+                    <p>After being reincarnated, Cid Kagenou recruits members for his Shadow Garden organization as he attempts to relive his fantasy of being the mastermind behind a group combating a cult.</p>
+                    <div class="anime-meta">
+                        <span class="episodes">20 Episodes</span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            8.7
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="anime-card" data-id="attack-titan">
+                <div class="card-overlay">
+                    <button class="watch-btn" onclick="openPlayer('attack-titan', 'Attack on Titan', 'Season 2')">
+                        <i class="fas fa-play"></i> Watch Now
+                    </button>
+                </div>
+                <img src="image/titan.jpg" alt="Attack on Titan" loading="lazy">
+                <div class="anime-info">
+                    <h3>Attack on Titan</h3>
+                    <p>As Eren and the Survey Corps continue their battle against the Titans, dark secrets about their world begin to unravel, threatening to change everything they believed in.</p>
+                    <div class="anime-meta">
+                        <span class="episodes">12 Episodes</span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            9.2
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="anime-card" data-id="sword-art">
+                <div class="card-overlay">
+                    <button class="watch-btn" onclick="openPlayer('sword-art', 'Sword Art Online', 'Season 3')">
+                        <i class="fas fa-play"></i> Watch Now
+                    </button>
+                </div>
+                <img src="image/sword.jpg" alt="Sword Art Online" loading="lazy">
+                <div class="anime-info">
+                    <h3>Sword Art Online</h3>
+                    <p>Kirito enters the Underworld, a virtual world created through a state-of-the-art technology, where he meets a mysterious boy named Eugeo and embarks on another adventure.</p>
+                    <div class="anime-meta">
+                        <span class="episodes">24 Episodes</span>
+                        <span class="rating">
+                            <i class="fas fa-star"></i>
+                            8.3
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="video-player">
+            <div class="player-header">
+                <div class="player-title">
+                    <h2 id="current-anime-title">Anime Title</h2>
+                    <span id="current-anime-season">Season 1</span>
+                </div>
+                <button class="close-player" onclick="closePlayer()">×</button>
+            </div>
+
+            <div class="video-container">
+                <video id="anime-video" controls>
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <div class="episodes-selection">
+                <h3>Episodes</h3>
+                <div id="episodes-container">
+                    <!-- Episodes will be generated here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Trailer Modal -->
+        <div id="trailer-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2 id="trailer-title">Trailer</h2>
+                <div class="trailer-container">
+                    <iframe id="trailer-iframe" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>AnimeVerse</h3>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Browse</h3>
+                <ul>
+                    <li><a href="#">New Releases</a></li>
+                    <li><a href="#">Popular</a></li>
+                    <li><a href="#">Genres</a></li>
+                    <li><a href="#">Studios</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>My Account</h3>
+                <ul>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Watchlist</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Settings</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow Us</h3>
+                <ul class="social-links">
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-discord"></i> Discord</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 AnimeVerse. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
